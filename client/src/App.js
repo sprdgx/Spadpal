@@ -64,63 +64,68 @@ function App() {
 
 
   return (
+    <>
+    <Head>
+      <title>SPADPAL</title>
+      <meta name="description" content="WEB3 SPADPAL" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link rel="icon" href="https://raw.githubusercontent.com/sprdgx/Photos/main/spadpal.png" />
+    </Head>
     <div className="App">
-      <Layout>
-        <Header className="header">
-          <div className="headerLeft">
-            <img src='https://raw.githubusercontent.com/sprdgx/Photos/main/spadpal.png' alt="logo" className="logo" />
-            {isConnected && (
-              <>
-                <div
-                  className="menuOption"
-                  style={{ borderBottom: "1.5px solid black" }}
-                >
-                  Summary
-                </div>
-                <div className="menuOption">Activity</div>
-                <div className="menuOption">{`Send & Request`}</div>
-                <div className="menuOption">Wallet</div>
-                <div className="menuOption">Help</div>
-              </>
-            )}
-          </div>
-          {isConnected ?
-              <ConfigProvider theme={{token: {colorPrimary: 'white'}}}>
-              <Button style={{  color:"black" }} type={"primary"} onClick={()=>{disconnectAndSetNull()}}>Disconnect Wallet</Button>
-              </ConfigProvider>
-           :
-              <ConfigProvider theme={{token: {colorPrimary: 'white'}}}>
-              <Button style={{  color:"black" }} type={"primary"} onClick={()=>{connect()}}>Connect Wallet</Button>
-              </ConfigProvider>
-          }
-
-          
-        </Header>
-        <Content className="content">
-        {isConnected ? (
-            <>
-              <div className="firstColumn">
-              <CurrentBalance dollars={dollars} />
-              <RequestAndPay requests={requests} getNameAndBalance={getNameAndBalance}/>
-              <AccountDetails
-                  address={address}
-                  name={name}
-                  balance={balance}
-                />
-              </div>
-              <div className="secondColumn">
-              <RecentActivity history={history} />
-              </div>
-            </>
-          ) : (
-            <div className="plsLogin">  
-            <h2>Hey there, we're thrilled to see you again! ❤️ </h2>
-            <h1>Please Log In with your MeTaMask so you can access all the features!! 😁 </h1>
+        <Layout>
+          <Header className="header">
+            <div className="headerLeft">
+              <img src='https://raw.githubusercontent.com/sprdgx/Photos/main/spadpal.png' alt="logo" className="logo" />
+              {isConnected && (
+                <>
+                  <div
+                    className="menuOption"
+                    style={{ borderBottom: "1.5px solid black" }}
+                  >
+                    Summary
+                  </div>
+                  <div className="menuOption">Activity</div>
+                  <div className="menuOption">{`Send & Request`}</div>
+                  <div className="menuOption">Wallet</div>
+                  <div className="menuOption">Help</div>
+                </>
+              )}
             </div>
-          )}
-        </Content>
-      </Layout>
-    </div>
+            {isConnected ?
+              <ConfigProvider theme={{ token: { colorPrimary: 'white' } }}>
+                <Button style={{ color: "black" }} type={"primary"} onClick={() => { disconnectAndSetNull(); } }>Disconnect Wallet</Button>
+              </ConfigProvider>
+              :
+              <ConfigProvider theme={{ token: { colorPrimary: 'white' } }}>
+                <Button style={{ color: "black" }} type={"primary"} onClick={() => { connect(); } }>Connect Wallet</Button>
+              </ConfigProvider>}
+
+
+          </Header>
+          <Content className="content">
+            {isConnected ? (
+              <>
+                <div className="firstColumn">
+                  <CurrentBalance dollars={dollars} />
+                  <RequestAndPay requests={requests} getNameAndBalance={getNameAndBalance} />
+                  <AccountDetails
+                    address={address}
+                    name={name}
+                    balance={balance} />
+                </div>
+                <div className="secondColumn">
+                  <RecentActivity history={history} />
+                </div>
+              </>
+            ) : (
+              <div className="plsLogin">
+                <h2>Hey there, we're thrilled to see you again! ❤️ </h2>
+                <h1>Please Log In with your MeTaMask so you can access all the features!! 😁 </h1>
+              </div>
+            )}
+          </Content>
+        </Layout>
+      </div></>
   );
 }
 
