@@ -1,5 +1,6 @@
 import "./App.css";
-import { Layout, Button , ConfigProvider, Modal, Input } from "antd";
+import {Helmet} from "react-helmet";
+import { Layout, Button , ConfigProvider, } from "antd";
 import CurrentBalance from "./componets/CurrentBalance";
 import RequestAndPay from "./componets/RequestAndPay";
 import AccountDetails from "./componets/AccountDetails";
@@ -8,6 +9,7 @@ import { useConnect, useAccount, useDisconnect } from "wagmi";
 import { MetaMaskConnector } from "wagmi/connectors/metaMask";
 import axios from "axios";
 import { useState, useEffect } from "react";
+
 
 const { Header, Content } = Layout;
 
@@ -64,13 +66,13 @@ function App() {
 
 
   return (
+
     <>
-    <Head>
-      <title>SPADPAL</title>
-      <meta name="description" content="WEB3 SPADPAL" />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-      <link rel="icon" href="https://raw.githubusercontent.com/sprdgx/Photos/main/spadpal.png" />
-    </Head>
+    <Helmet>
+        <title>SPADPAL</title>
+        <meta name="description" content="WEB3 PAYPAL" />
+        
+    </Helmet>
     <div className="App">
         <Layout>
           <Header className="header">
