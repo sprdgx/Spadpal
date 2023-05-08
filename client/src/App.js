@@ -67,32 +67,16 @@ function App() {
 
   return (
 
-    <>
-    <Helmet>
-        <title>SPADPAL</title>
-        <meta name="description" content="WEB3 PAYPAL" />
-        
-    </Helmet>
+
     <div className="App">
-        <Layout>
+        <Helmet>
+          <title>SPADPAL</title>
+          <meta name="description" content="WEB3 PAYPAL" />
+        </Helmet>
+        <Layout >
           <Header className="header">
-            <div className="headerLeft">
-              <img src='https://raw.githubusercontent.com/sprdgx/Photos/main/spadpal.png' alt="logo" className="logo" />
-              {isConnected && (
-                <>
-                  <div
-                    className="menuOption"
-                    style={{ borderBottom: "1.5px solid black" }}
-                  >
-                    Summary
-                  </div>
-                  <div className="menuOption">Activity</div>
-                  <div className="menuOption">{`Send & Request`}</div>
-                  <div className="menuOption">Wallet</div>
-                  <div className="menuOption">Help</div>
-                </>
-              )}
-            </div>
+            <img src='https://raw.githubusercontent.com/sprdgx/SprD/main/ICONs/ICONWHITE.png' alt="icon" className="icon" />
+            <h2 className="site">SPADPAL</h2>
             {isConnected ?
               <ConfigProvider theme={{ token: { colorPrimary: 'white' } }}>
                 <Button style={{ color: "black" }} type={"primary"} onClick={() => { disconnectAndSetNull(); } }>Disconnect Wallet</Button>
@@ -101,8 +85,6 @@ function App() {
               <ConfigProvider theme={{ token: { colorPrimary: 'white' } }}>
                 <Button style={{ color: "black" }} type={"primary"} onClick={() => { connect(); } }>Connect Wallet</Button>
               </ConfigProvider>}
-
-
           </Header>
           <Content className="content">
             {isConnected ? (
@@ -121,13 +103,14 @@ function App() {
               </>
             ) : (
               <div className="plsLogin">
+                <img src='https://raw.githubusercontent.com/sprdgx/SprD/main/LOGOs/LOGOWHITE.png' alt="logo" className="logo" />
                 <h2>Hey there, we're thrilled to see you again! ❤️ </h2>
                 <h1>Please Log In with your MeTaMask so you can access all the features!! 😁 </h1>
               </div>
             )}
           </Content>
         </Layout>
-      </div></>
+      </div>
   );
 }
 

@@ -3,11 +3,9 @@
   min-height: 100vh;
 }
 
-
 .header {
   background-color: rgb(38, 62, 90);
   display: flex;
-  justify-content: space-between;
   align-items: center;
   padding-left: 100px;
   padding-right: 100px;
@@ -16,6 +14,7 @@
 
 .plsLogin {
   text-align: center;
+  color:whitesmoke
 }
 
 
@@ -34,8 +33,19 @@
   color: whitesmoke;
 }
 
-.logo{
+.icon{
   height: 60px;
+  padding-right: 10px;
+}
+.logo{
+  height: 7cm;
+}
+
+
+.site{
+  padding-right: 1020px;
+  color: whitesmoke;
+  font-size: 30px;
 }
 
 .content {
